@@ -1,5 +1,5 @@
 # 🔍 Overview
-Project L.U.M.E.N is an experiental/exploratory initiative that invites you to re-awaken the "Temple of Lumen" using modern audio visual technology. The stations, or also known as "Shrines" includes:
+**Project L.U.M.E.N** is an experiental/exploratory initiative that invites you to re-awaken the "Temple of Lumen" using modern audio visual technology. The stations, or also known as **Shrines** includes:
 
 1. Beam Circuit
 2. Wall Glyphs Silent Sequence
@@ -8,24 +8,34 @@ Project L.U.M.E.N is an experiental/exploratory initiative that invites you to r
 
 In this repository, we will be focusing on **Station 1 - Beam Circuit**.
 
-# ℹ️ Introduction to Station 1 - Beam Circuit
-In this station, players are tested on not only their observation skills, but also their logical and reaction time as they need to avoid the light sensors placed along the walls that are ostracizing the laser path to reach the final light sensor placed in the center.
+# ℹ️ Introduction to Beam Circuit
+In this station, players are tested on not only their observation skills, but also their logical and reaction time as they need to avoid the light sensors that are placed along the walls that are ostracizing the laser path while adjusting the angle of the mirror for the laser path to reach the final light sensor placed in the center.
 
  **Raspberry Pi** and other elements such as **Laser, Light Sensors, PCA9685 Servo Driver, MPD218 MIDI Pad and Servo Motors** are used to create a fun and interactive experience.
 
 # 🛠️ Dependencies
+All codes in this repository had been made using **Python 3.9 or higher**.
 
  The **Raspberry Pi** acts as the master, which then connects and controls the other elements:
 
  * **Laser:** To create a laser path for players to navigate through the maze
+ 
+    [Click here to view Laser code](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/lasercontrol.py)
 
  * **Light Sensors:** To detect laser path to determine success or failure
+    
+     [Click here to view Light Sensor code](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/lightcontrol.py)
 
  * **PCA9685 Servo Driver:** To support Raspberry Pi to control the servo motor by using I²C 
 
+  * **Servo Motor:** To have mirrors attached and serve laser path to reach destination
+
+    [Click here to view PCA9685 Servo Driver as well as Servo Motor code](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/servomotorcontrol.py)
+
 * **MPD218 MIDI Pad**: To start game, end game, set servo motors to respective stages preset, and rotate respective motors to get desired angle
 
- * **Servo Motor:** To have mirrors attached and serve laser path to reach destination
+    [Click here to view MPD218 MIDI Pad code](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/midicontrol.py)
+
 
 
 
