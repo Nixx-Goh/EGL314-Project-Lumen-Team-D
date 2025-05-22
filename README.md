@@ -18,23 +18,19 @@ All codes in this repository had been made using **Python 3.9 or higher**.
 
  The **Raspberry Pi** acts as the master, which then connects and controls the other elements:
 
- * **Laser:** To create a laser path for players to navigate through the maze
- 
-    [Click here to view Laser code](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/lasercontrol.py)
+ * [**Laser:**](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/lasercontrol.py) To create a laser path for players to navigate through the maze
 
- * **Light Sensors:** To detect laser path to determine success or failure
+ * [**Light Sensors:**](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/lightcontrol.py) To detect laser path to determine success or failure
     
-     [Click here to view Light Sensor code](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/lightcontrol.py)
+ * [**PCA9685 Servo Driver:**](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/servomotorcontrol.py)
+ To support Raspberry Pi to control the servo motor by using I²C 
 
- * **PCA9685 Servo Driver:** To support Raspberry Pi to control the servo motor by using I²C 
+  * [**Servo Motor:**](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/servomotorcontrol.py)
+ To have mirrors attached and serve laser path to reach destination
 
-  * **Servo Motor:** To have mirrors attached and serve laser path to reach destination
+* [**MPD218 MIDI Pad:**](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/midicontrol.py)
+ To start game, end game, set servo motors to respective stages preset, and rotate respective motors to get desired angle
 
-    [Click here to view PCA9685 Servo Driver as well as Servo Motor code](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/servomotorcontrol.py)
-
-* **MPD218 MIDI Pad**: To start game, end game, set servo motors to respective stages preset, and rotate respective motors to get desired angle
-
-    [Click here to view MPD218 MIDI Pad code](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/midicontrol.py)
 
 
 
