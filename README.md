@@ -31,6 +31,21 @@ All codes in this repository had been made using **Python 3.9 or higher**.
 * [**MPD218 MIDI Pad:**](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/midicontrol.py)
  To start game, end game, set servo motors to respective stages preset, and rotate respective motors to get desired angle
 
+# ⚙️ System Flowchart 
+
+```mermaid
+graph LR
+
+
+A[MIDI Controller] --MIDI--> B[Raspberry Pi B] 
+C[Light Sensor] --12C--> B
+B --> D[Relay]
+D --> E[Laser]
+B --> F[Servo Driver </br> PCA9685]
+F --PWM--> G[Servo Motor </br> SG90]
+
+```    
+
 # ⚙️ System Logic 
 
 # 💻 Code Logic
