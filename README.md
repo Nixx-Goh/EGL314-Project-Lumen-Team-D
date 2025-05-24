@@ -9,9 +9,9 @@
 In this repository, we will be focusing on **Station 1 - Beam Circuit**.
 
 # ℹ️ Introduction to Beam Circuit
-In this station, players are tested on not only their observation skills, but also their logical and reaction time as they need to avoid the light sensors that are placed along the walls that are ostracizing the laser path while adjusting the angle of the mirror for the laser path to reach the final light sensor placed in the center.
+In this station, players are tested on not only their observation skills, but also their logical and reaction time as they need to avoid the light sensors that are placed along the border as well as the walls that block the laser path while adjusting the angle of the mirror for the it to reach the final light sensor placed in the center.
 
- **Raspberry Pi** and other elements such as **Laser, Light Sensors, PCA9685 Servo Driver, MPD218 MIDI Pad and Servo Motors** are used to create a fun and interactive experience.
+ **Raspberry Pi** and other components such as **Laser, Light Sensors, PCA9685 Servo Driver, MPD218 MIDI Pad and Servo Motors** are used to create a fun and interactive experience.
 
 # 🛠️ Dependencies
 All codes in this repository had been made using **Python 3.9 or higher**.
