@@ -13,7 +13,7 @@ In this station, players are tested on not only their observation skills, but al
 
  **Raspberry Pi** and other components such as **Laser, Light Sensors, PCA9685 Servo Driver, MPD218 MIDI Pad and Servo Motors** are used to create a fun and interactive experience.
 
-# 🛠️ Dependencies
+# 🛠️ Dependencies & System Logic
 All codes in this repository had been made using **Python 3.9 or higher**.
 
  The **Raspberry Pi** acts as the master, which then connects and controls the other elements:
@@ -46,9 +46,40 @@ F --PWM--> G[Servo Motor </br> SG90]
 
 ```    
 
-# ⚙️ System Logic 
-
 # 💻 Code Logic
+To enable I2C to control the servo motor via PCA9685, head to terminal and type 
+
+```
+sudo raspi-config
+```
+Select "Interface Option", select I2C, select enable and then exit and reboot
+```
+sudo reboot
+```
+After rebooting successfully, type these to get the address of the PCA9685
+```
+sudo apt install -y i2c-tools
+```
+```
+i2cdetect -y 1
+```
+
+After successful detection, head over to the Visual Studio Code terminal and install these
+```
+pip install adafruit_pca9685
+```
+```
+pip install board
+```
+```
+pip install adafruit-circuitpython-motor
+```
+```
+pip install adafruit_motor
+```
+
+Run the programme to check if ^ these have been installed successfully. If it was not installed successfully, there would be red underline stating that library was not installed successfully, just install again. 
+
 
 
 
