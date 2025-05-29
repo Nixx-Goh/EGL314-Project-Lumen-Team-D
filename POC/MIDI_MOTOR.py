@@ -57,3 +57,4 @@ finally:
     for s in servos:
         s.angle = None
     print("Servos deactivated.")
+    
