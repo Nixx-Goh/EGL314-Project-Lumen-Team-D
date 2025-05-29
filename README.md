@@ -43,6 +43,9 @@ B --> D[Relay]
 D --> E[Laser]
 B --> F[Servo Driver </br> PCA9685]
 F --PWM--> G[Servo Motor </br> SG90]
+H[Power Supply] --Ground--> E
+H --5V--> D
+I[Power Supply 2] --5V </br> Ground--> F 
 
 ```    
 
@@ -76,6 +79,12 @@ pip install adafruit-circuitpython-motor
 ```
 ```
 pip install adafruit_motor
+```
+
+To install adafruit on python interpreter: 
+
+```
+pip3 install adafruit-blinka adafruit-circuitpython-pca9685 adafruit-circuitpython-servokit
 ```
 
 Run the programme to check if ^ these have been installed successfully. If it was not installed successfully, there would be red underline stating that library was not installed successfully, just install again. 
