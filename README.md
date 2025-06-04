@@ -39,13 +39,13 @@ graph LR
 
 A[MIDI Controller] --MIDI--> B[Raspberry Pi B] 
 C[Light Sensor] --12C--> B
-B --> D[Relay]
+B --GPIO--> D[Relay]
 D --> E[Laser]
-B --> F[Servo Driver </br> PCA9685]
+B --I2C--> F[Servo Driver </br> PCA9685]
 F --PWM--> G[Servo Motor </br> SG90]
+I[Power Supply 2] --5V </br> Ground--> F 
 H[Power Supply] --Ground--> E
 H --5V--> D
-I[Power Supply 2] --5V </br> Ground--> F 
 
 ```    
 
