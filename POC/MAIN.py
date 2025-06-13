@@ -34,10 +34,10 @@ for pin in LASERS.values():
 
 # ==== Light Sensors ====
 SENSOR_PINS = {
-    "win": 5,
-    "lose1": 6,
-    "lose2": 12,
-    "lose3": 16
+    "win1": 6,
+    "win2": 12,
+    "lose1": 5,
+    "lose2": 16
 }
 
 for pin in SENSOR_PINS.values():
@@ -45,16 +45,12 @@ for pin in SENSOR_PINS.values():
 
 PAD_TO_STAGE = {
     36: 1,  # Pad 1
-    37: 2,  # Pad 2
-    38: 3,  # Pad 3
-    39: 4   # Pad 4
+    37: 2   # Pad 2
 }
 
 STAGE_DURATIONS = {
     1: 30,
-    2: 45,
-    3: 60,
-    4: 75
+    2: 45
 }
 
 START_BUTTON_PAD = 45  # Pad 10
@@ -82,7 +78,12 @@ class StageDisplayApp:
     def start_timer(self):
         if self.current_stage and not self.timer_running:
             duration = STAGE_DURATIONS.get(self.current_stage, 30)
-            GPIO.output(LASERS[self.current_stage], GPIO.LOW)
+            if self.current_stage == 1:
+                GPIO.output(LASERS[1], GPIO.LOW)
+                GPIO.output(LASERS[2], GPIO.LOW)
+            elif self.current_stage == 2:
+                GPIO.output(LASERS[3], GPIO.LOW)
+                GPIO.output(LASERS[4], GPIO.LOW)
             self.timer_running = True
             self.light_thread = threading.Thread(target=self.monitor_lights, daemon=True)
             self.light_thread.start()
@@ -121,10 +122,10 @@ class StageDisplayApp:
                         lit_times[name] = current_time
                     else:
                         duration = current_time - lit_times[name]
-                        if name == "win" and duration >= 5:
+                        if name.startswith("win") and duration >= 2:
                             self.end_stage("WIN")
                             return
-                        elif name.startswith("lose") and duration >= 3:
+                        elif name.startswith("lose") and duration >= 2:
                             self.end_stage("LOSE")
                             return
                 else:
@@ -172,10 +173,8 @@ def midi_listener(app):
 
                 if cc in CC_TO_SERVO:
                     servo_index = CC_TO_SERVO[cc]
-                    angle = int(val * 180 / 127)
+                    angle = int(val * 180 / 127)  # Reduced sensitivity removed, full range restored
                     servos[servo_index].angle = angle
-                    servo_angles[servo_index] = angle
-                    print(f"Knob CC{cc} → Servo {servo_index} → Angle {angle}°")
 
 if __name__ == "__main__":
     root = tk.Tk()
@@ -185,5 +184,3 @@ if __name__ == "__main__":
     midi_thread.start()
 
     root.mainloop()
-
-    GPIO.cleanup()
