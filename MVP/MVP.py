@@ -25,7 +25,7 @@ def send_osc(address):
 def send_gma3_command(cmd_string: str):
     try:
         IP = "192.168.254.213"
-        PORT = 2000
+        PORT = 2001
         addr = "/gma3/cmd"
         client = udp_client.SimpleUDPClient(IP, PORT)
         client.send_message(addr, cmd_string)
@@ -51,7 +51,7 @@ for pin in LASERS.values():
 adc = ADS.ADS1115(i2c, address=0x48)
 channels_adc = [AnalogIn(adc, ADS.P0), AnalogIn(adc, ADS.P1), AnalogIn(adc, ADS.P2), AnalogIn(adc, ADS.P3)]
 
-# ==== Base Stage Class ====
+# ==== Base Asteroid Class ====
 class StageBase:
     def __init__(self, app, name):
         self.app = app
@@ -62,8 +62,8 @@ class StageBase:
     def on_win(self): pass
     def on_lose(self): pass
 
-# ==== Individual Stages ====
-class Stage1(StageBase):
+# ==== Individual Asteroids ====
+class Asteroid1(StageBase):
     def on_enter(self):
         send_gma3_command("Go+ Sequence ")
         send_gma3_command("GO+ Sequence ")
@@ -91,7 +91,7 @@ class Stage1(StageBase):
         send_gma3_command("Go+ Sequence 2")
         send_gma3_command("Go+ Sequence 13")
 
-class Stage2(StageBase):
+class Asteroid2(StageBase):
     def on_enter(self):
         send_gma3_command("Go+ Sequence 4")
         send_gma3_command("GO+ Sequence 6")
@@ -119,14 +119,14 @@ class Stage2(StageBase):
         send_gma3_command("Go+ Sequence 2")
         send_gma3_command("Go+ Sequence 13")
 
-# ==== Stage and Pad Mapping ====
+# ==== Asteroid and Pad Mapping ====
 PAD_TO_STAGE = {
-    36: Stage1,
-    37: Stage2,
+    36: Asteroid1,
+    37: Asteroid2,
 }
 STAGE_DURATIONS = {
-    "Stage1": 30,
-    "Stage2": 45
+    "Asteroid1": 30,
+    "Asteroid2": 45
 }
 
 START_BUTTON_PAD = 45
@@ -138,6 +138,7 @@ sweep_pairs = [[1, 6], [7, 10], [11, 8]]
 
 # ==== App Class ====
 class StageDisplayApp:
+    # (unchanged code below)
     def __init__(self, root):
         self.root = root
         self.root.title("Stage Display")
