@@ -9,13 +9,13 @@ Station 4 - Launch Core Override
 In this repository, we will be focusing on **Station 1 - Laser Defence Protocol**.
 
 # ℹ️ Introduction to Laser Defence Protocol
- **Raspberry Pi** and other components such as **Laser, 2 Channel Relay, Light Sensors, PCA9685 Servo Driver, Servo Motors, MPD218 MIDI Pad, ADS1115 Analog Digital Converter (ADC) and Display Screen** are used to create a fun and interactive experience.
+ **Raspberry Pi** and other components such as **Laser, 2 Channel Relay, Light Sensors, PCA9685 Servo Driver, Servo Motors, MPD218 MIDI Pad, ADS1115 Analog Digital Converter (ADC) and LCD Touch Screen** are used to create a fun and interactive experience.
 
  In this exhibit, players are tested on their accuracy skills. As asteriods are shooting down, players are tasked to help us destroy them by aiming the laser into the light sensor. 
  
  There is a laser mounted onto a 3D printed robot arm where it stores 3 servo motors at different part of the arm and all will be controlled by the MIDI Pad on the right side of the board. Player will use 3 knobs on the MIDI Pad to control the rotation angles of the individual servo motors of the robot arm. Knob 5 controls the top servo motor where it goes up and down as well but for more accurate aim; Knob 6 controls the middle servo motor where the arm goes up and down; Knob 3 controls the bottom servo motor where it allows the arm to turn left and right. There will be 4 pads use as well, to select the 2 stages, start the game and end the game. 
 
- On the left side of the board, there are 2 light sensors stored in a 3D printed house as well as a display screen. In between the board, there are "space objects" taped onto a string where it is tied to the servo motors sweeping left and right to distract the players. Players are required to control the robot arm to shoot the laser into the light sensor while trying to not get distracted by the "space objects" within the time limit in order to consider it as a success.
+ On the left side of the board, there are 2 light sensors stored in a 3D printed house as well as a LCD touch screen. In between the board, there are "space objects" taped onto a string where it is tied to the servo motors sweeping left and right to distract the players. Players are required to control the robot arm to shoot the laser into the light sensor while trying to not get distracted by the "space objects" within the time limit in order to consider it as a success.
 
  Here is an image of our game:
 
@@ -26,25 +26,33 @@ In this repository, we will be focusing on **Station 1 - Laser Defence Protocol*
 All codes in this repository had been made using **Python 3.9 or higher**.
 
  The **Raspberry Pi** acts as the master, which then connects and controls the other elements:
+![alt text](pi.jpg)
 
 * [**Laser:**](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/lasercontrol.py) To help players to destroy the asteriods
+![alt text](laser.jpg)
 
-* **2 Channel Relay:** To control the laser 
+* **2 Channel Relay:** To control the laser
+![alt text](<2 channel relay.jpg>)
 
 * [**Servo Motor:**](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/servomotorcontrol.py)
  To help "space objects" to sweep left and right and attached in robot arm to help aim the laser to the light sensor
+![alt text](sg90.png)
 
 * [**Light Sensors:**](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/lightsensor.py) To detect laser and "destroy asteriods" to determine success or failure
     
 * [**PCA9685 Servo Driver:**](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/servomotorcontrol.py)
- To support Raspberry Pi to control the servo motor by using I²C 
+ To support Raspberry Pi to control the servo motor by using I²C
+![alt text](pca.jpg)
 
 * [**MPD218 MIDI Pad:**](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/midicontrol.py)
  To start game, end game, set servo motors to respective stages preset, and rotate respective motors to get desired angle
+![alt text](midipad.jpg)
 
  * **ADS1115 Analog Digital Converter (ADC):** To convert the light sensor from analog to digital
+![alt text](ads1115.jpg)
 
- * **Display Screen:** To display the time limit of each stage as well as success or failure
+ * **LCD Touch Screen:** To display the time limit of each stage as well as success or failure
+![alt text](<lcd touch screen.jpg>)
 
 # ⚙️ System Flowchart 
 
@@ -110,9 +118,5 @@ adafruit-circuitpython-servokit
 
 Run the programme to check if ^ these have been installed successfully. If it was not installed successfully, there would be red underline stating that library was not installed successfully, just install again. 
 
-
-
-
-
-
-
+# 📍 GPIO Pin Out
+![alt text](GPIO.png)
