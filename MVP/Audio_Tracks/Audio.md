@@ -19,6 +19,7 @@ def send_osc(address):
 ```
 
 <br>
+<br>
 
 <h3>
 2. Start Button for Asteroid 1
@@ -37,6 +38,7 @@ def on_start(self):
 * When Pressed it will go to this marker number2 which has a light saber sound effect
 * This will come on when pressed Asteroid button 1
 <br>
+<br>
 
 <h3>
 3. Win condition for Asteroid 1
@@ -53,6 +55,7 @@ def on_win(self):
 ```
 *  I used marker 8(40168) which will come off to the sound effect of "You have clear Stage 1"
 <br>
+<br>
 
 <h3>
 4. Losing
@@ -66,6 +69,7 @@ def on_lose(self):
         send_gma3_command("Go+ Sequence 13")
 ```
 *  I used marker 4(40164) which will come off when player does not hit the sensor within the time limit 
+<br>
 <br>
 
 <h3>
@@ -86,6 +90,7 @@ def on_start(self):
 * When Pressed it will go to this marker number9 which has a light saber sound effect
 * This will come on when pressed Asteroid button 2
 <br>
+<br>
 
 <h3>
 6. Win condition for Asteroid 2
@@ -101,6 +106,7 @@ def on_win(self):
         send_gma3_command("Go+ Sequence 8")
 ```
 *  I used marker 5(40165) which will come off with a explosion sound effect and commence "You have destroyed the Asteroid"
+<br>
 <br>
 
 
@@ -132,7 +138,38 @@ with mido.open_input(input_name) as port:
 *  Marker 1(40161) for the first marker which is the start of my sequence where the biginning audio will start "Welcome to Sector 536"
 * I used "1007" to start the Audio and 1016 to stop the Audio
 <br>
+<br>
+<br>
+<br>
+<br>
+
+<h1> Connecting the OSC</h1>
+
+<h3>1. Control Surface Settings </h3>
+<img src="./Audio_image/Control.png">
+
+* This is the page where we do the configuration to connect the osc
+* How do we get here
+* Below will show you step by step
+
+<br>
+<br>
+<br>
 
 
+<h3> 2.Find Preference </h3>
+<img src="./Audio_image/Preference.png">
+
+* You will have to look for the option button circled in yellow then head down to the bottom where you can see the blue circle and click on it
+
+<br>
+<br>
+<br>
 
 
+<h3> 3.In the Preference tab </h3>
+<img src="./Audio_image/OSC.png">
+
+* Search for Control/OSC/web which is the yellow one that i have circled and afterwards press the one circled in blue which is the add button
+
+* Afterwhich you will be in the Control surface settings to set the OSC
