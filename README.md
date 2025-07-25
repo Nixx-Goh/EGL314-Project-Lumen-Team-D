@@ -19,7 +19,7 @@ In this repository, we will be focusing on **Station 1 - Laser Defence Protocol*
 
  Here is an image of our game:
 
- ![alt text](game.jpg)
+![alt text](MVP/game.jpg)
 
 
 # 🛠️ Dependencies & System Logic
@@ -27,23 +27,22 @@ All codes in this repository had been made using **Python 3.9 or higher**.
 
  The **Raspberry Pi** acts as the master, which then connects and controls the other elements:
 
-![alt text](pi.jpg)
+![alt text](MVP/pi.jpg)
 
 
 * [**Laser:**](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/lasercontrol.py) To help players to destroy the asteriods
 
-![alt text](laser.jpg)
-
+![alt text](MVP/laser.jpg)
 
 * **2 Channel Relay:** To control the laser
 
-![alt text](<2 channel relay.jpg>)
+![alt text](<MVP/2 channel relay.jpg>)
 
 
 * [**Servo Motor:**](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/servomotorcontrol.py)
  To help "space objects" to sweep left and right and attached in robot arm to help aim the laser to the light sensor
  
-![alt text](sg90.png)
+![alt text](MVP/sg90.png)
 
 
 * [**Light Sensors:**](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/lightsensor.py) To detect laser and "destroy asteriods" to determine success or failure
@@ -51,23 +50,23 @@ All codes in this repository had been made using **Python 3.9 or higher**.
 * [**PCA9685 Servo Driver:**](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/servomotorcontrol.py)
  To support Raspberry Pi to control the servo motor by using I²C
 
-![alt text](pca.jpg)
+![alt text](MVP/pca.jpg)
 
 
 * [**MPD218 MIDI Pad:**](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/main/Backlog%202%20Sprint%201/midicontrol.py)
  To start game, end game, set servo motors to respective stages preset, and rotate respective motors to get desired angle
 
-![alt text](midipad.jpg)
+![alt text](MVP/midipad.jpg)
 
 
  * **ADS1115 Analog Digital Converter (ADC):** To convert the light sensor from analog to digital
 
-![alt text](ads1115.jpg)
+![alt text](MVP/ads1115.jpg)
 
 
  * **LCD Touch Screen:** To display the time limit of each stage as well as success or failure
 
-![alt text](<lcd touch screen.jpg>)
+![alt text](<MVP/lcd touch screen.jpg>)
 
 
 # ⚙️ System Flowchart 
@@ -135,4 +134,4 @@ adafruit-circuitpython-servokit
 Run the programme to check if ^ these have been installed successfully. If it was not installed successfully, there would be red underline stating that library was not installed successfully, just install again. 
 
 # 📍 GPIO Pin Out
-![alt text](GPIO.png)
+![alt text](MVP/GPIO.png)
