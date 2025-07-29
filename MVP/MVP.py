@@ -25,7 +25,7 @@ def send_osc(address):
 def send_gma3_command(cmd_string: str):
     try:
         IP = "192.168.254.213"
-        PORT = 2001
+        PORT = 2000
         addr = "/gma3/cmd"
         client = udp_client.SimpleUDPClient(IP, PORT)
         client.send_message(addr, cmd_string)
@@ -40,7 +40,7 @@ pca.frequency = 50
 servos = [servo.Servo(pca.channels[i]) for i in range(16)]
 
 # ==== Laser Setup ====
-LASERS = {1: 17}  # Only GPIO17 connected
+LASERS = {1: 17}
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 for pin in LASERS.values():
@@ -65,13 +65,17 @@ class StageBase:
 # ==== Individual Asteroids ====
 class Asteroid1(StageBase):
     def on_enter(self):
-        send_gma3_command("Go+ Sequence ")
-        send_gma3_command("GO+ Sequence ")
-        send_gma3_command("GO+ Sequence ")
+        send_gma3_command("Off Sequence 11")
+        send_gma3_command("Go+ Sequence 4")
+        send_gma3_command("Go+ Sequence 6")
+        send_gma3_command("Go+ Sequence 12")
 
     def on_start(self):
         send_osc("/action/40162")
+        send_gma3_command("Off Sequence 2")
+        send_gma3_command("Off Sequence 3")
         send_gma3_command("Off Sequence 4")
+        send_gma3_command("Off Sequence 6")
         send_gma3_command("Off Sequence 12")
         send_gma3_command("Go+ Sequence 7")
         send_gma3_command("Go+ Sequence 9")
@@ -81,25 +85,23 @@ class Asteroid1(StageBase):
         send_osc("/action/40168")
         send_gma3_command("Off Sequence 9")
         send_gma3_command("Go+ Sequence 3")
-        send_gma3_command("Go+ Sequence 12")
-        send_gma3_command("Go+ Sequence 5")
-        send_gma3_command("Go+ Sequence 8")
 
     def on_lose(self):
         send_osc("/action/40164")
         send_gma3_command("Off Sequence 9")
         send_gma3_command("Go+ Sequence 2")
-        send_gma3_command("Go+ Sequence 13")
 
 class Asteroid2(StageBase):
     def on_enter(self):
-        send_gma3_command("Go+ Sequence 4")
-        send_gma3_command("GO+ Sequence 6")
-        send_gma3_command("GO+ Sequence 12")
+        send_gma3_command("Off Sequence 2")
+        send_gma3_command("Off Sequence 3")
+        send_gma3_command("Go+ Sequence 6")
+        send_gma3_command("Go+ Sequence 12")
 
     def on_start(self):
         send_osc("/action/40169")
         send_gma3_command("Off Sequence 4")
+        send_gma3_command("Off Sequence 6")
         send_gma3_command("Off Sequence 12")
         send_gma3_command("Go+ Sequence 7")
         send_gma3_command("Go+ Sequence 9")
@@ -108,8 +110,7 @@ class Asteroid2(StageBase):
     def on_win(self):
         send_osc("/action/40165")
         send_gma3_command("Off Sequence 9")
-        send_gma3_command("Go+ Sequence 3")
-        send_gma3_command("Go+ Sequence 12")
+        send_gma3_command("Go+ Sequence 3 Cue 1")
         send_gma3_command("Go+ Sequence 5")
         send_gma3_command("Go+ Sequence 8")
 
@@ -117,7 +118,6 @@ class Asteroid2(StageBase):
         send_osc("/action/40164")
         send_gma3_command("Off Sequence 9")
         send_gma3_command("Go+ Sequence 2")
-        send_gma3_command("Go+ Sequence 13")
 
 # ==== Asteroid and Pad Mapping ====
 PAD_TO_STAGE = {
@@ -128,7 +128,6 @@ STAGE_DURATIONS = {
     "Asteroid1": 30,
     "Asteroid2": 45
 }
-
 START_BUTTON_PAD = 45
 RESTART_BUTTON_PAD = 46
 STOP_PAD = 47
@@ -138,7 +137,6 @@ sweep_pairs = [[1, 6], [7, 10], [11, 8]]
 
 # ==== App Class ====
 class StageDisplayApp:
-    # (unchanged code below)
     def __init__(self, root):
         self.root = root
         self.root.title("Stage Display")
@@ -163,6 +161,15 @@ class StageDisplayApp:
 
     def start_timer(self):
         if self.current_stage and not self.timer_running:
+            # Move servos 13, 4, and 15 to 90 degrees before stage starts
+            try:
+                servos[13].angle = 90
+                servos[4].angle = 90
+                servos[15].angle = 90
+                time.sleep(0.5)
+            except Exception as e:
+                print(f"Error moving initial servos: {e}")
+
             self.current_stage.on_start()
             duration = STAGE_DURATIONS.get(self.current_stage.name, 30)
             self.win_detected = False
@@ -271,7 +278,6 @@ def midi_listener(app):
                     send_osc("/action/1007")
                 elif note == STOP_PAD:
                     send_osc("/action/1016")
-
             elif msg.type == 'control_change':
                 cc = msg.control
                 val = msg.value
