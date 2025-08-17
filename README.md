@@ -11,7 +11,7 @@ In this repository, we will be focusing on **Station 1 - Laser Defence Protocol*
 # ℹ️ Introduction to Laser Defence Protocol
  **Raspberry Pi** and other components such as **Laser, 2 Channel Relay, Light Sensors, PCA9685 Servo Driver, Servo Motors, MPD218 MIDI Pad, ADS1115 Analog Digital Converter (ADC) and LCD Touch Screen** are used to create a fun and interactive experience.
 
- In this exhibit, players are tested on their accuracy skills. As asteriods are shooting down, players are tasked to help us destroy them by aiming the laser into the light sensor. 
+ In this exhibit, players are tested on their accuracy skills. As asteriods are shooting down, players are tasked to help us destroy them by aiming the laser into the light sensor. ☄️
  
  There is a laser mounted onto a 3D printed robot arm where it stores 3 servo motors at different part of the arm and all will be controlled by the MIDI Pad on the right side of the board. Player will use 3 knobs on the MIDI Pad to control the rotation angles of the individual servo motors of the robot arm. Knob 5 controls the top servo motor where it goes up and down as well but for more accurate aim; Knob 6 controls the middle servo motor where the arm goes up and down; Knob 3 controls the bottom servo motor where it allows the arm to turn left and right. There will be 4 pads use as well, to select the 2 stages, start the game and end the game. 
 
