@@ -4,7 +4,7 @@
 
 ### System Overview
 
-All lighting sequences are controlled from the **`Main.py`** interface.
+All lighting sequences except for Sequence 1 are controlled from the **`Main.py`** interface.
 The GUI communicates with the **Master Server Raspberry Pi** over the local network using **OSC (Open Sound Control)** messages sent to the GrandMA3 command endpoint.
 
 * Network target for lighting: `GMA_IP = "192.168.254.213"`, `GMA_PORT = 2000`.
@@ -14,7 +14,7 @@ This lets operators fire cues from the GUI without touching the desk: pressing a
 
 ### Design Concept
 
-The lighting design adopts a **galaxy-inspired palette** of **blue, pink, and purple**.
+The lighting design adopts a **Galaxy-inspired palette** of **Blue, Pink, and Purple**.
 
 The intention is to create a clean, immersive atmosphere while guiding attention to key stage elements.
 
@@ -39,8 +39,8 @@ The intention is to create a clean, immersive atmosphere while guiding attention
 - **Sequence 10 & 20**: Asteriod on the wall explodes.
 
 ## To Team C Transition:
-- **Sequence 11**: Emergency like flashing red lights to match the ALarm audio cue.
-- **Sequence 21**: Gobo transition to lead the guests to Team C.
+- **Sequence 11**: Emergency like flashing red lights to match the Alarm audio cue.
+- **Sequence 21**: Gobo transition to lead the guests to Kinetic Core Recharge.
 
 
 
