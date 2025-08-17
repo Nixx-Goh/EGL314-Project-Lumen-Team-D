@@ -2,6 +2,23 @@
 
 # By Jun Ting
 
+### System Overview
+
+All lighting sequences are controlled from the **`Main.py`** interface.
+The GUI communicates with the **Master Server Raspberry Pi** over the local network using **OSC (Open Sound Control)** messages sent to the GrandMA3 command endpoint.
+
+* Network target for lighting: `GMA_IP = "192.168.254.213"`, `GMA_PORT = 2000`.
+* OSC client used in code: `udp_client.SimpleUDPClient(GMA_IP, GMA_PORT)`.
+* Lighting commands are sent via `trigger_gma(command)`, which transmits to the GrandMA3 command address: `/gma3/cmd`.
+This lets operators fire cues from the GUI without touching the desk: pressing a button sends an OSC command to the Master Pi, which relays it to **GrandMA3**.
+
+### Design Concept
+
+The lighting design adopts a **galaxy-inspired palette** of **blue, pink, and purple**.
+
+The intention is to create a clean, immersive atmosphere while guiding attention to key stage elements.
+
+
 ## Introduction
 - **Sequence 1**: Starry night background lights for the introduction.
 - **Sequence 2**: Path lights& Red Gobo to lead guests into the Laser Defence Protocol station. 
@@ -22,7 +39,7 @@
 - **Sequence 10 & 20**: Asteriod on the wall explodes.
 
 ## To Team C Transition:
-- **Sequence 11**: Emergency like flashing red light to match the ALarm audio cue.
+- **Sequence 11**: Emergency like flashing red lights to match the ALarm audio cue.
 - **Sequence 21**: Gobo transition to lead the guests to Team C.
 
 
