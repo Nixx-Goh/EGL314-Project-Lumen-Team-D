@@ -15,4 +15,4 @@ As **Project L.U.M.E.N** embarks on a space themed 🌌 project, we have decided
 
 In this [file](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/tree/ad5a1d9af8deb733fb79ee824074b01b7ca7c464/Final%20Sequence/rocketimages), you can find a few pictures of our rocket 🚀.
 
-To find out more of our final sequence, you can head over [here](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/94431c5a035e7fa55535c32c9e59dfb4fc614913/Final%20Sequence/rocketimages/rocketup.mp4) to download or watch the video.
+To find out more of our final sequence, you can head over [here](https://github.com/Nixx-Goh/EGL314-Project-Lumen-Team-D/blob/94431c5a035e7fa55535c32c9e59dfb4fc614913/Final%20Sequence/rocketimages/rocketup.mp4) to download/watch the video.
